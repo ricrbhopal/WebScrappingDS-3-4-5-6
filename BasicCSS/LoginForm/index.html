@@ -1,71 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login Page</title>
     <!-- <link rel="stylesheet" href="style123.css"> -->
 
     <style>
-        /* *{
+      /* *{
     background-color: aqua;
 } */
 
-body{
-    background-color: rgb(207, 207, 207);
-}   
+      body {
+        background-color: rgb(207, 207, 207);
+      }
+
+      label {
+        background-color: pink;
+      }
+
+      #outerDiv {
+        width: 600px;
+        height: 500px;
+        border: 5px double green;
+        margin: auto;
+        padding: 20px;
+      }
+
+      h1 {
+        background-color: rgb(226, 190, 9);
+        color: red;
+        font-size: 100px;
+        font-weight: 800;
+        font-variant: normal;
+        font-style: italic;
+      }
+
+      #forgetPasswordButton {
+        background-color: rgb(253, 245, 4);
+        color: rgb(67, 68, 70);
+        padding: 7px;
+        border-radius: 10px;
+        border: 1px solid #000;
+      }
+
+      #forgetPasswordButton:hover{
+        background-color: rgb(152, 148, 12);
+        color: rgb(255, 255, 255);
+        border-radius: 10px;
+        border: 1px solid rgb(253, 245, 4);
+      }
 
 
-label{
-    background-color: pink;
-}
-
-#outerDiv{
-    width: 600px;
-    height: 500px;
-    border: 5px double green;
-}
-
-h1{
-    background-color: rgb(226, 190, 9);
-    color: red;
-    font-size: 100px ;
-    font-weight: 800;
-    font-variant: normal;
-    font-style: italic;
-    
-}
-
-#forgetPasswordButton{
-    background-color: rgb(253, 245, 4);
-    color: aliceblue;
-}
+      .formFeilds{
+        border: 1px solid #000;
+        width: fit-content;
+        margin: auto;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div id="outerDiv">
-        <h1>
-            Login Form
-        </h1>
-        <div id="formContent">
-            <div class="formFeilds">
-                <label for="Email">Email : </label>
-                <input type="email" name="Email" id="Email" placeholder="User your offical Email">
-            </div>
-
-            <div class="fromFeilds">
-                <label for="Password">Password : </label>
-                <input type="password" name="Password" id="Password" placeholder="Your Password">
-            </div>
-            <div class="formTerms">
-                <input type="checkbox" name="T&C" id="T&C" value="Agree">
-                <span>I Agree Terms and Condition</span>
-            </div>
-            <div class="fromAction">
-                <button id="forgetPasswordButton" style="color: darkslategray;">Forget Password</button>
-                <button id="loginButton">Login</button>
-            </div>
+      <h1>Login Form</h1>
+      <div id="formContent">
+        <div class="formFeilds">
+          <label for="Email">Electronic mail : </label>
+          <input
+            type="email"
+            name="Email"
+            id="Email"
+            placeholder="User your offical Email"
+          />
         </div>
+
+        <div class="formFeilds">
+          <label for="Password">Password : </label>
+          <input
+            type="password"
+            name="Password"
+            id="Password"
+            placeholder="Your Password"
+          />
+        </div>
+        <div class="formTerms">
+          <input type="checkbox" name="T&C" id="T&C" value="Agree" />
+          <span>I Agree Terms and Condition</span>
+        </div>
+        <div class="fromAction">
+          <button id="forgetPasswordButton">
+            Forget Password
+          </button>
+          <button id="loginButton">Login</button>
+        </div>
+        <hr>
+      </div>
     </div>
-</body>
+  </body>
 </html>
