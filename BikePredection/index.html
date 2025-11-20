@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="header">
+      <h1>Bike Price Predection</h1>
+    </div>
+
+    <div id="mainDiv">
+      <div class="featureItems">
+        <label for="bikeAge">Bike Age</label>
+        <input type="number" name="bikeAge" id="bikeAge" />
+      </div>
+
+      <div class="featureItems">
+        <label for="city">City</label>
+        <select name="city" id="city">
+          <option value="">--Select City--</option>
+        </select>
+      </div>
+
+      <div class="featureItems">
+        <label for="owner">OwnerShip</label>
+        <select name="owner" id="owner">
+          <option value="">--Select OwnerShip--</option>
+          <option value="First Owner">First Owner</option>
+          <option value="Second Owner">Second Owner</option>
+          <option value="Third Owner">Third Owner</option>
+          <option value="Fourth Owner & More">Fourth Owner & More</option>
+        </select>
+      </div>
+
+      <div class="featureItems">
+        <label for="power">Power</label>
+        <input type="number" name="power" id="power" />
+      </div>
+
+      <div class="featureItems">
+        <label for="brand">OwnerShip</label>
+        <select name="brand" id="brand">
+          <option value="">--Select Brand--</option>
+        </select>
+      </div>
+
+      <div class="featureItems">
+        <label for="originalPrice">Original Price</label>
+        <input type="number" name="originalPrice" id="originalPrice" />
+      </div>
+
+      <div class="featureItems">
+        <label for="kms_driven">KMs Driven</label>
+        <input type="number" name="kms_driven" id="kms_driven" />
+      </div>
+
+      <div class="fromAction">
+        <button id="clearButton">Clear form</button>
+        <button id="predictButton">Predict Price</button>
+      </div>
+
+      <div id="PredictedPrice">
+        <label for="predictedPrice">Predicted Price</label>
+        <div id="price">₹ XXXXX.XX</div>
+      </div>
+    </div>
+  </body>
+</html>
