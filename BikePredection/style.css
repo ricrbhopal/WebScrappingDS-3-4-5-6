@@ -8,15 +8,15 @@ body{
 }
 
 #header{
-    background-color: blue;
-    color: aliceblue;
+    background-color: skyblue;
+    color: blue;
     padding: 5px 0;
     text-align: center;
 }
 
 #mainDiv{
     background-color: rgb(255, 255, 255);
-    border: 2px solid black;
+    border: 2px solid skyblue;
     width: max-content;
     margin: 25px auto;
     padding: 20px;
@@ -29,6 +29,7 @@ body{
 
     display: grid;
     grid-template-columns: 150px 250px;
+    align-items: center;
 }
 
 

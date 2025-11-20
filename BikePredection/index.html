@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div id="header">
@@ -21,6 +21,9 @@
         <label for="city">City</label>
         <select name="city" id="city">
           <option value="">--Select City--</option>
+          <option value="bhopal">Bhopal</option>
+          <option value="indore">Indore</option>
+          <option value="jabalpur">Jabalpur</option>
         </select>
       </div>
 
@@ -41,9 +44,12 @@
       </div>
 
       <div class="featureItems">
-        <label for="brand">OwnerShip</label>
+        <label for="brand">Brand</label>
         <select name="brand" id="brand">
           <option value="">--Select Brand--</option>
+          <option value="yahama">Yahama</option>
+          <option value="hero">Hero</option>
+          <option value="bajaj">Bajaj</option>
         </select>
       </div>
 
@@ -58,8 +64,8 @@
       </div>
 
       <div class="fromAction">
-        <button id="clearButton">Clear form</button>
-        <button id="predictButton">Predict Price</button>
+        <button id="clearButton" onclick="clearForm()">Clear form</button>
+        <button id="predictButton" onclick="predict()">Predict Price</button>
       </div>
 
       <div id="PredictedPrice">
@@ -67,5 +73,6 @@
         <div id="price">₹ XXXXX.XX</div>
       </div>
     </div>
+    <script src="script.js"></script>
   </body>
 </html>
