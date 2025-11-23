@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background-color: azure;
+      }
+
+      #header {
+        background-color: skyblue;
+        color: blue;
+        padding: 5px 0;
+        text-align: center;
+      }
+
+      #mainDiv {
+        background-color: rgb(255, 255, 255);
+        border: 2px solid skyblue;
+        width: max-content;
+        margin: 25px auto;
+        padding: 20px;
+        border-radius: 20px;
+      }
+
+      .featureItems {
+        margin: 15px;
+
+        display: grid;
+        grid-template-columns: 150px 250px;
+        align-items: center;
+      }
+
+      input,
+      select {
+        padding: 5px;
+      }
+
+      .fromAction {
+        text-align: center;
+      }
+
+      .fromAction button {
+        margin: 15px;
+        padding: 7px 10px;
+        border: 1px solid black;
+        border-radius: 5px;
+      }
+
+      #clearButton {
+        background-color: lightgoldenrodyellow;
+        border-color: darkorange;
+      }
+
+      #clearButton:hover {
+        background-color: rgb(248, 248, 1);
+        border-color: darkorange;
+      }
+
+      #predictButton {
+        background-color: lightgreen;
+        border-color: darkgreen;
+      }
+
+      #predictButton:hover {
+        background-color: green;
+        border-color: darkgreen;
+        color: white;
+      }
+
+      #PredictedPrice {
+        background-color: rgb(254, 215, 221);
+        border: 1px solid black;
+        padding: 10px;
+        text-align: center;
+        border-radius: 10px;
+      }
+
+      #PredictedPrice label {
+        color: rgb(76, 76, 249);
+        font-size: x-large;
+        font-weight: 700;
+      }
+
+      #price {
+        margin-top: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header">
+      <h1>Bike Price Predection</h1>
+    </div>
+
+    <div id="mainDiv">
+      <div class="featureItems">
+        <label for="year">Year of Purchase</label>
+        <input type="number" name="year" id="year" />
+      </div>
+
+      <div class="featureItems">
+        <label for="owner">OwnerShip</label>
+        <select name="owner" id="owner">
+          <option value="">--Select OwnerShip--</option>
+          <option value="First Owner">First Owner</option>
+          <option value="Second Owner">Second Owner</option>
+          <option value="Third Owner">Third Owner</option>
+          <option value="Fourth Owner & More">Fourth Owner & More</option>
+        </select>
+      </div>
+
+      <div class="featureItems">
+        <label for="power">Power</label>
+        <input type="number" name="power" id="power" />
+      </div>
+
+      <div class="featureItems">
+        <label for="brand">Brand</label>
+        <select name="brand" id="brand">
+          <option value="">--Select Brand--</option>
+        </select>
+      </div>
+
+      <div class="featureItems">
+        <label for="originalPrice">Original Price</label>
+        <input type="number" name="originalPrice" id="originalPrice" />
+      </div>
+
+      <div class="featureItems">
+        <label for="kms_driven">KMs Driven</label>
+        <input type="number" name="kms_driven" id="kms_driven" />
+      </div>
+
+      <div class="fromAction">
+        <button id="clearButton" onclick="clearForm()">Clear form</button>
+        <button id="predictButton" onclick="predict()">Predict Price</button>
+      </div>
+
+      <div id="PredictedPrice">
+        <label for="predictedPrice">Predicted Price</label>
+        <div id="price">₹ XXXXX.XX</div>
+      </div>
+    </div>
+    <script>
+      function clearForm() {
+        window.location.reload();
+      }
+
+      async function predict() {
+        console.log("Predict Button Clicked");
+
+        const ba = document.getElementById("year").value;
+        const on = document.getElementById("owner").value;
+        const pw = document.getElementById("power").value;
+        const bn = document.getElementById("brand").value;
+        const op = document.getElementById("originalPrice").value;
+        const km = document.getElementById("kms_driven").value;
+
+        const data = {
+          year: ba,
+          owner: on,
+          power: pw,
+          brand: bn,
+          "Original Price": op,
+          kms_driven: km,
+        };
+
+        console.log("Data : ", data);
+
+        try {
+          // Call backend API
+          const res = await fetch("/predict", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+          });
+
+          const result = await res.json();
+
+          console.log(result);
+
+          document.getElementById("price").innerText =
+            "₹" + result.predictedPrice;
+        } catch (error) {
+          console.log(error);
+        }
+      }
+
+      async function loaddata() {
+        const res = await fetch("/load-data");
+        const brandData = await res.json();
+
+        const sl = document.getElementById("brand");
+
+        brandData.BrandData.forEach((element) => {
+          const op = document.createElement("option");
+          op.value = element;
+          op.innerText = element;
+
+          sl.appendChild(op);
+        });
+      }
+
+      loaddata();
+    </script>
+  </body>
+</html>
