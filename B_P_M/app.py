@@ -7,7 +7,7 @@ import os
 #Create BackEnd App using Flask
 app = Flask(__name__)
 
-#Giving CROS permission to my app
+#Giving CORS permission to my app
 CORS(app)
 
 #Load the Model PKL file
